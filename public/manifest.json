@@ -1,25 +1,18 @@
 {
-    "manifest_version": 3,
-    "name": "LeetCodeAI",
-    "version": "1.0",
-    "description": "Get hints, algorithms, or code for LeetCode problems without switching back and forth.",
-    "permissions": ["activeTab", "storage"],
-    "action": {
-      "default_popup": "index.html",
-      "default_icon": {
-        "16": "icons/download.png",
-        "48": "icons/download.png",
-        "128": "icons/download.png"
-      }
-    },
-    "content_scripts": [
-      {
-        "matches": ["*://leetcode.com/*"],
-        "js": ["content.js"]
-      }
-    ],
-    "background": {
-      "service_worker": "background.js"
-    }
-  }
-  
+  "manifest_version":3,
+  "version":"1.0.0",
+  "name":"Leetcode AI Extension",
+   "action": {
+          "default_popup":"index.html"
+   },
+   "permissions":[
+    "scripting"
+   ],
+   "host_permissions":[
+    "http://*/*",
+    "https://*/*"
+   ],
+   "icons":{
+    "32":"download.png"
+   }
+}

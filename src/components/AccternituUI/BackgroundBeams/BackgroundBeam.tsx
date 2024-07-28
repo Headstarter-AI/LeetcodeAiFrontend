@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { BackgroundBeams } from "./background-beams";
 import toast, { Toaster } from 'react-hot-toast';
+ import leetcode from '../../../assets/leetcode_50.png';
 
 export function BackgroundBeamsDemo() {
   const [email, setEmail] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await fetch("https://leetcodeai.onrender.com/api/v1/users/waitlist", {
@@ -29,13 +30,18 @@ export function BackgroundBeamsDemo() {
 
   return (
     <div className="h-screen w-full bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
+      <div>
+        <img src={leetcode} alt="LeetCode Logo"  className=" h-20 w-20 mb-4 rounded-full border-2 border-neutral-700 " />
+        </div>
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="max-w-2xl mx-auto p-4">
+      <div className="max-w-2xl mx-auto p-4 flex flex-col items-center">
+        
+         
         <h1 className="relative z-20 text-lg md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold">
           Join the waitlist
         </h1>
         <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm text-center relative z-20">
-          Get hints, algorithms, and code right away in our LeetCode editor.
+        An AI tool to get hints, algorithms and code for you right in your Leetcode code editor
         </p>
         <form onSubmit={handleSubmit} className="w-full flex flex-col items-center relative z-20">
           <input
